@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="assets/styles/contact.css" />
+
+<nav class="navbar">
+  <a href="/" class="logo">ＪＯＧＪＡＬＡＮＤ</a>
+  <ul class="nav-links">
+    <li><a href="/">HOME</a></li>
+    <li><a href="/explore">EXPLORE</a></li>
+    <li><a href="/about">ABOUT US</a></li>
+    <li><a href="/contact" class="active">CONTACT US</a></li>
+  </ul>
+  <button class="hamburger">☰</button>
+</nav>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <p>Don't hesitate to reach out to us for any queries or assistance.</p>
+
+  <div class="contact-options">
+    <div class="contact-option" onclick="openWhatsApp()">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/phone.png"
+        alt="Call Us"
+      />
+      <h3>Call Us</h3>
+      <p>Reach us through WhatsApp.</p>
+    </div>
+    <div class="contact-option" onclick="openEmail()">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/new-post.png"
+        alt="Email Us"
+      />
+      <h3>Email Us</h3>
+      <p>Send us an email.</p>
+    </div>
+    <div class="contact-option" onclick="showMap()">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/marker.png"
+        alt="Our Location"
+      />
+      <h3>Our Location</h3>
+      <p>Find us on the map.</p>
+    </div>
+  </div>
+
+  <iframe
+    id="map"
+    style="display: none"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.138957338815!2d110.39607487468275!3d-7.775086677133116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a597c12768801%3A0xa9dc6a68874886d6!2sEkowisata%20Nologaten!5e0!3m2!1sen!2sid!4v1734845605832!5m2!1sen!2sid"
+    width="600"
+    height="450"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  >
+  </iframe>
+</div>
+<div class="messageForm">
+  <h1>Send Us Message</h1>
+  <p>We value your feedback. please send us a message below:</p>
+  <form id="messageForm">
+    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <textarea id="message" name="message" placeholder="Message" required></textarea>
+    <button type="submit" id="submitButton">Send</button>
+</form>
+
+<div id="confirmationMessage" class="hidden"></div>
+  <div id="confirmationMessage" class="hidden">
+    Pesan berhasil terkirim! <span>&#128077;</span>
+  </div>
+</div>
+
+<div id="messagesContainer" class="messages-container">
+  <h2>Messages</h2>
+  <div id="messagesList"></div>
+</div>
+
+<!-- Add a confirmation message container for submission feedback -->
+<div id="confirmationMessage" class="hidden"></div>
+
+<script src="assets/scripts/contact.js"></script>

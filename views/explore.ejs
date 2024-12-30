@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/assets/styles/explore.css" />
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/" class="logo">ＪＯＧＪＡＬＡＮＤ</a>
+  <ul class="nav-links">
+    <li><a href="/">HOME</a></li>
+    <li><a href="/explore" class="active">EXPLORE</a></li>
+    <li><a href="/about">ABOUT US</a></li>
+    <li><a href="/contact">CONTACT US</a></li>
+  </ul>
+  <button id="hamburger" class="hamburger">☰</button>
+</nav>
+
+<!-- Konten Utama -->
+<div class="content">
+  <h1>𝐄𝐱𝐩𝐥𝐨𝐫𝐞 𝐄𝐤𝐨𝐰𝐢𝐬𝐚𝐭𝐚 𝐍𝐨𝐥𝐨𝐠𝐚𝐭𝐞𝐧</h1>
+  <p>
+    Tᴇᴍᴜᴋᴀɴ ʙᴇʀʙᴀɢᴀɪ ᴋᴇɢɪᴀᴛᴀɴ ᴍᴇɴᴀʀɪᴋ ʏᴀɴɢ ʙɪsᴀ Aɴᴅᴀ ʟᴀᴋᴜᴋᴀɴ ᴅɪ Eᴋᴏᴡɪsᴀᴛᴀ
+    Nᴏʟᴏɢᴀᴛᴇɴ.
+  </p>
+
+  <div class="activities">
+    <% images.forEach(image => { %>
+    <div class="activity">
+      <div class="image-container">
+        <img
+          src="data:image/jpeg;base64,<%= image.imageData %>"
+          alt="<%= image.description %>"
+        />
+        <div class="overlay">
+          <div class="text"><%= image.description %></div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Us Section -->
+    <div class="footer-section about-us">
+      <h3>About us</h3>
+      <p>
+        Tiket masuk GRATIS</p>
+        <p>JL.TEMULAWAK NOLOGATEN, RW.04, Nologaten, Caturtunggal, Kec. Depok Kabupaten Sleman Daerah Istimewa Yogyakarta·</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-tumblr"></i></a>
+      </div>
+    </div>
+
+    <!-- Latest Projects Section -->
+    <div class="footer-section latest-projects">
+      <h3>SUMBER Artikel</h3>
+      <ul>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod. Ullamcorper suscipit lobortis nisl dolore eu
+          feugiat nulla...
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod. Ullamcorper suscipit lobortis nisl dolore eu
+          feugiat nulla...
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod. Ullamcorper suscipit lobortis nisl dolore eu
+          feugiat nulla...
+        </li>
+      </ul>
+    </div>
+
+    <!-- My Gallery Section -->
+    <div class="footer-section my-gallery">
+      <h3>Our Gallery</h3>
+      <div class="gallery">
+        <img src="assets/images/img1.jpg" alt="Gallery Image" />
+        <img src="assets/images/img3.jpg" alt="Gallery Image" />
+        <img src="assets/images/img4.jpg" alt="Gallery Image" />
+        <img src="assets/images/img5.jpg" alt="Gallery Image" />
+        <img src="assets/images/img2.jpg" alt="Gallery Image" />
+        <img src="assets/images/poto4.jpg" alt="Gallery Image" />
+        <img src="assets/images/img7.jpg" alt="Gallery Image" />
+        <img src="assets/images/poto1.jpg" alt="Gallery Image" />
+      </div>
+    </div>
+  </div>
+  <!-- Copyright Section -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 Ekowisata Nologaten. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/assets/scripts/explore.js"></script>
