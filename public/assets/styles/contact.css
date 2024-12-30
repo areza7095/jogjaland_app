@@ -9,6 +9,7 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  font-family: Arial, sans-serif;
 }
 
 /* Navbar Styles */
@@ -67,143 +68,97 @@ body {
 
 @media (max-width: 768px) {
   .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      background-color: rgba(47, 50, 55, 0.9);
-      width: 100%;
-      z-index: 10;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: rgba(47, 50, 55, 0.9);
+    width: 100%;
+    z-index: 10;
   }
 
   .nav-links.active {
-      display: flex;
+    display: flex;
   }
 
   .hamburger {
-      display: block;
+    display: block;
   }
 }
 
-.navigation {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-  }
-  
-.navigation button {
-    background: #a69b8d(0, 0, 0, 0.5);
-    color: #433a29;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-  
-.navigation button:hover {
-    background: #a69b8d(0, 0, 0, 0.8);
-    color: #f2eeeb;
-  }
-
+/* Container Styles */
 .container {
-    padding: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 100px auto 0;
 }
 
 h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #333; /* Warna */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 p {
-    color: #333; /* Warna */
-    margin-bottom: 20px;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .contact-options {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    color: #f2eeeb;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #f2eeeb;
 }
 
-/* Warna */
-  .contact-options p { /* Paragraf */
-    color: #fff;
-  }
-
 .contact-option {
-    width: 150px;
-    padding: 10px;
-    background-color: #40372f;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
+  width: 150px;
+  padding: 10px;
+  background-color: #40372f;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+  text-align: center;
 }
 
 .contact-option:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .contact-option img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .contact-option h3 {
-    font-size: 1.2rem;
-    margin: 10px 0;
+  font-size: 1.2rem;
+  margin: 10px 0;
 }
 
-iframe {
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 80%;
-    height: 400px;
-    border: 0;
-    display: block;
-    position: justify;
-}
+/* Form Styles */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.input-row {
-    display: flex;
-    gap: 10px;
-}
-
-.input-row input {
-    flex: 1;
-}
 input, textarea {
-
-  width: 100%; /* Pastikan input dan textarea mengisi lebar form */
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
   resize: none;
-  box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
-}
-
-input, .messageForm{
-  box-sizing: border-box;
-  padding: 20px;
 }
 
 button {
   padding: 10px 15px;
   border: none;
-  background-color: #ffcc00; /* Warna tombol */
+  background-color: #ffcc00;
   color: #333;
   font-size: 1rem;
   border-radius: 5px;
@@ -212,47 +167,39 @@ button {
 }
 
 button:hover {
-  background-color: #e6b800; /* Warna tombol saat hover */
+  background-color: #e6b800;
 }
 
-.hidden {
-    display: none;
+/* Messages Section */
+#messagesContainer {
+  width: 100%; /* Membuat lebar penuh */
+  margin: 20px 0;
 }
 
-.messageForm {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-#confirmationMessage {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #4caf50;
-    background-color: #a69b8d;
-    color: #3c763d;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-
-/* TEMPORARY */
+/* Message Item Styles */
 .message-item {
   display: flex;
   align-items: flex-start;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .message-avatar {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .message-avatar img {
@@ -270,9 +217,26 @@ button:hover {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #333;
 }
 
 .message-content p {
   margin: 0;
   line-height: 1.4;
+  color: #555;
+}
+
+/* Confirmation Message */
+#confirmationMessage {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #4caf50;
+  background-color: #dff0d8;
+  color: #3c763d;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
