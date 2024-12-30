@@ -16,27 +16,28 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-// EJS
+// EJS Configuration
 app.use(expressLayouts);
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); // Set the views directory
+app.set('view engine', 'ejs'); // Set the view engine to EJS
 
 // Express body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Static files
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 // Express session
 app.use(
   session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 
@@ -48,7 +49,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Global variables
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
@@ -58,9 +59,10 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
-app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
+// Log the views directory for debugging
+console.log('Views directory:', path.join(__dirname, 'views'));
 
+// Port setup
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, console.log(`Server running on  ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

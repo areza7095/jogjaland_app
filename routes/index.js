@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require("../config/auth");
-const Image = require("../models/Image"); // Import model Image
-const Message = require('../models/Messages'); // Ganti path ini sesuai struktur proyek Anda
+const Image = require("../models/Image");
+const Message = require('../models/Messages');
 
 // Welcome Page
 router.get("/", (req, res) => res.render("index"));
 
+// Explore Page
 router.get("/explore", async (req, res) => {
   try {
     const images = await Image.find({});
@@ -17,24 +18,31 @@ router.get("/explore", async (req, res) => {
   }
 });
 
+// About Page
 router.get("/about", (req, res) => res.render("about"));
 
+// Contact Page
 router.get("/contact", (req, res) => res.render("contact"));
 
-// Route to get all messages
+// API: Get all messages
 router.get('/messages', async (req, res) => {
   try {
-    const messages = await Message.find().sort({ createdAt: 1 }); // Sort messages by creation date
+    const messages = await Message.find().sort({ createdAt: 1 });
     res.json(messages);
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Error fetching messages');
+    console.error("Error fetching messages:", err);
+    res.status(500).send("Server error");
   }
 });
 
+// API: Save new message
 router.post("/message", async (req, res) => {
   try {
     const { firstName, lastName, email, message } = req.body;
+
+    if (!firstName || !lastName || !email || !message) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     const newMessage = new Message({
       firstName,
@@ -51,7 +59,7 @@ router.post("/message", async (req, res) => {
   }
 });
 
-// Route untuk mengambil semua pesan
+// Admin Messages Page
 router.get("/admin/messages", async (req, res) => {
   try {
     const messages = await Message.find();
@@ -62,28 +70,24 @@ router.get("/admin/messages", async (req, res) => {
   }
 });
 
-
-
-// Dashboard
+// Dashboard Page
 router.get("/dashboard", ensureAuthenticated, async (req, res) => {
   try {
-    const images = await Image.find(); // Fetch all images from the database
+    const images = await Image.find();
 
-    // Convert each image to base64 format for rendering in the template
-    const imagesWithBase64 = images.map((image) => {
-      return {
-        ...image.toObject(),
-        imageData: `data:image/jpeg;base64,${image.imageData}`, // Append base64 image string
-      };
-    });
+    // Convert images to base64
+    const imagesWithBase64 = images.map((image) => ({
+      ...image.toObject(),
+      imageData: `data:image/jpeg;base64,${image.imageData}`,
+    }));
 
     res.render("dashboard", {
       user: req.user,
-      images: imagesWithBase64, // Pass base64 image data to the template
+      images: imagesWithBase64,
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Server Error");
+    console.error("Error loading dashboard:", err);
+    res.status(500).send("Server error");
   }
 });
 
