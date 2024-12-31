@@ -145,7 +145,7 @@ body {
 
 .about-text {
   flex: 2;
-
+  text-align: justify;
 }
 
 .about-text h2 {
