@@ -170,7 +170,7 @@ body {
 
 .mission, .values, .contact p {
   margin: 40px 0;
-  text-align: center;
+  text-align: justify;
   font-size: 1.2rem;
   line-height: 1.6;
   color: #666;
