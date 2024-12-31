@@ -9,6 +9,23 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  width: 1200px;
+}
+
+/* Gaya untuk tablet */
+@media (max-width: 768px) {
+  .container {
+      width: 100%;
+      padding: 0 20px;
+  }
+}
+
+/* Gaya untuk tablet */
+@media (max-width: 768px) {
+  .container {
+      width: 100%;
+      padding: 0 20px;
+  }
 }
 
 /* Navbar Styles */
